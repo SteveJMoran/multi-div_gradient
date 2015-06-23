@@ -1,0 +1,28 @@
+{
+  "name": "multi-div_gradient",
+  "version": "1.0.0",
+  "description": "less compilation",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SteveJMoran/multi-div_gradient.git"
+  },
+  "keywords": [
+    "less"
+  ],
+  "author": "Steven Moran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteveJMoran/multi-div_gradient/issues"
+  },
+  "homepage": "https://github.com/SteveJMoran/multi-div_gradient",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "jit-grunt": "^0.9.1"
+  }
+}
