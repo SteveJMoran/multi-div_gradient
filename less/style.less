@@ -19,6 +19,18 @@
 // 	.each(@counter, @current-color);
 // }
 
+
+@iterations: 5;
+
+.mixin-loop (@i) when (@i > 0) {
+  div:nth-child(@{i}) {
+    border-color: 3px solid #000;
+  }
+  .mixin-loop(@i - 1);
+}
+
+.mixin-loop(@iterations);
+
 .container {
 	width: 50%;
 	margin: 0 auto;
@@ -36,7 +48,6 @@
 		//.loop(5);
 	}
 }
-
 
 .gradient (@div-counter, @one, @two, @three, @four, @five, @six){
 	background: @color-1; /* Old browsers */
