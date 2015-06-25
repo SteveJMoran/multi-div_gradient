@@ -1,3 +1,19 @@
+
+// Basic Layout
+.container {
+	width: 50%;
+	margin: 0 auto;
+	
+	div {
+		margin:20px;
+		color: #fff;
+		text-align: center;
+		font-size: 36px;
+		text-transform: uppercase;
+		padding:20px;
+	}
+}
+
 /* Color Stops */
 
 @color-1		:#8ed0e4;
@@ -7,18 +23,19 @@
 @color-5		:#fac478;
 @color-6		:#fea362;
 
-// .each (@count, @color) {
-// 	&:nth-child(@{color}) {
-// 		background-color: @color;
-// 	}
-// }
+//***	The loop mixin to apply the gradient
 
-// .loop(@counter) when (@counter > 0) {
-// 	.loop((@counter - 1));
-// 	@current-color: darken(#ccc, (@counter * 20%));
-// 	.each(@counter, @current-color);
-// }
+.gradient-loop(@color-start, @color-end){
+	background: -moz-linear-gradient(top,  @color-start 0%, @color-end 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color-start), color-stop(100%,@color-end)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  @color-start 0%,@color-end 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  @color-start 0%,@color-end 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  @color-start 0%,@color-end 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  @color-start 0%,@color-end 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color-start', endColorstr='@color-end',GradientType=0 ); /* IE6-9 */
+}
 
+//**** 	The Loop
 
 @iterations: 5;
 
@@ -32,34 +49,8 @@
 
 .mixin-loop(@iterations);
 
-.container {
-	width: 50%;
-	margin: 0 auto;
-	
-	div {
-		background-color: #f60;
-		margin:20px;
-		color: #fff;
-		text-align: center;
-		font-size: 36px;
-		text-transform: uppercase;
-		padding:20px;
-		
-		//.gradient(5, @color-1, @color-2, @color-3, @color-4, @color-5, @color-6);
-		//.loop(5);
-	}
-}
 
-//The loop mixin to apply the gradient
-.gradient-loop(@color-start, @color-end){
-	background: -moz-linear-gradient(top,  @color-start 0%, @color-end 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color-start), color-stop(100%,@color-end)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  @color-start 0%,@color-end 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  @color-start 0%,@color-end 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  @color-start 0%,@color-end 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  @color-start 0%,@color-end 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color-start', endColorstr='@color-end',GradientType=0 ); /* IE6-9 */
-}
+//***** 	Static Mixin
 
 .gradient(@div-counter, @one, @two, @three, @four, @five, @six){
 	background: @color-1; /* Old browsers */
